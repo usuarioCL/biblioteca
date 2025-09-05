@@ -23,11 +23,10 @@
           <a class="nav-link" href="<?= base_url("libros"); ?>">Libros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('editoriales'); ?>">Editoriales</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('personas'); ?>">Personas</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('recursos'); ?>">Recursos</a>
       </ul>
     </div>
   </div>
