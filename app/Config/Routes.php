@@ -45,4 +45,9 @@ $routes->get('api/ubigeo/distritos/(:num)', 'ProvinciaController::getDistritosBy
 $routes->get('/recursos', 'RecursoController::index');
 $routes->get('/recursos/crear', 'RecursoController::crear'); 
 $routes->post('recursos/guardar', 'RecursoController::guardar');
+$routes->get('/recursos/editar/(:num)', 'RecursoController::editar/$1');
+$routes->post('/recursos/actualizar/(:num)', 'RecursoController::actualizar/$1');
+$routes->get('/recursos/eliminar/(:num)', 'RecursoController::eliminar/$1');
 $routes->get('/recursos/subcategoriasPorCategoria/(:num)', 'RecursoController::subcategoriasPorCategoria/$1');
+$routes->get('/recursos/verificarISBN/(:segment)', 'RecursoController::verificarISBN/$1');
+$routes->get('/recursos/verificarISBN/(:segment)/(:num)', 'RecursoController::verificarISBN/$1/$2');
