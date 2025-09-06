@@ -1,68 +1,127 @@
-# CodeIgniter 4 Application Starter
 
-## What is CodeIgniter?
+## 🎯 Descripción del Proyecto
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Sistema integral de gestión para bibliotecas digitales desarrollado con **CodeIgniter 4** que permite administrar recursos bibliográficos, libros, personas y organizaciones de manera eficiente y moderna.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### ✨ Características Principales
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- 📖 **Gestión de Recursos Digitales** - Administración de recursos bibliográficos
+- 📚 **Catálogo de Libros** - Control de inventario y clasificación
+- 📱 **Interfaz Responsiva** - Diseño adaptable con Bootstrap 5
+- 🎨 **UI Moderna** - Interfaz intuitiva con Bootstrap Icons
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## 🚀 Tecnologías Utilizadas
 
-## Installation & updates
+### Backend
+- **PHP 8.1+** - Lenguaje de programación principal
+- **CodeIgniter 4** - Framework PHP moderno y ligero
+- **MySQL** - Sistema de gestión de base de datos
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### Frontend
+- **Bootstrap 5.2.3** - Framework CSS responsivo
+- **Bootstrap Icons** - Librería de iconos oficial
+- **JavaScript ES6+** - Funcionalidades dinámicas
+- **SweetAlert2** - Alertas y confirmaciones elegantes
+- **Toastify** - Notificaciones toast modernas
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### Herramientas de Desarrollo
+- **Composer** - Gestor de dependencias PHP
+- **PHPUnit** - Framework de testing
+- **Git** - Control de versiones
 
-## Setup
+## 📋 Funcionalidades por Módulo
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 🗂️ Gestión de Recursos
+- ✅ Listado de recursos
+- ✅ Creación y edición de recursos
+- ✅ Carga de archivos (PDF, imágenes)
+- ✅ Categorización por tipo y estado
+- ✅ Vista previa de portadas
+- ✅ Control de estados (Bueno, Regular, Malo)
 
-## Important Change with index.php
+## 🏗️ Arquitectura del Sistema
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+```
+biblioteca/
+├── app/
+│   ├── Controllers/          # Controladores MVC
+│   │   ├── LibroController.php
+│   │   ├── RecursoController.php
+│   │   ├── PersonaController.php
+│   │   └── ...
+│   ├── Models/              # Modelos de datos
+│   │   ├── Libro.php
+│   │   ├── Recurso.php
+│   │   ├── Categoria.php
+│   │   └── ...
+│   ├── Views/               # Vistas y templates
+│   │   ├── Layouts/
+│   │   ├── recursos/
+│   │   ├── libros/
+│   │   └── ...
+│   ├── Config/              # Configuraciones
+│   └── Database/            # Migraciones y seeds
+├── public/                  # Archivos públicos
+│   ├── uploads/             # Archivos subidos
+│   └── index.php
+├── writable/               # Archivos escribibles
+└── vendor/                 # Dependencias
+```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## ⚙️ Instalación y Configuración
 
-**Please** read the user guide for a better explanation of how CI4 works!
+### Prerrequisitos
+- PHP 8.1 o superior
+- MySQL 5.7+ o MariaDB
+- Composer
+- Servidor web (Apache/Nginx)
 
-## Repository Management
+### Pasos de Instalación
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/usuarioCL/biblioteca.git
+   cd biblioteca
+   ```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+2. **Instalar dependencias**
+   ```bash
+   composer install
+   ```
 
-## Server Requirements
+3. **Configurar base de datos**
+   ```bash
+   # Copiar archivo de configuración
+   cp env.example .env
+   
+   # Editar configuración de BD en .env
+   database.default.hostname = localhost
+   database.default.database = biblioteca
+   database.default.username = tu_usuario
+   database.default.password = tu_password
+   ```
 
-PHP version 8.1 or higher is required, with the following extensions installed:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+## 📊 Estructura de Base de Datos
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Tablas Principales
+- `recursos` - Almacena recursos digitales
+- `editoriales` - Casas editoras
+- `categorias` - Clasificación de contenido
+- `subcategorias` - Subclasificaciones
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+### Entorno de Desarrollo
+```bash
+php spark serve
+# Accede a: http://localhost:8080
+```
+
+### Entorno de Producción
+1. Configurar servidor web
+2. Ajustar configuraciones en `.env`
+3. Ejecutar optimizaciones:
+   ```bash
+   composer install --no-dev --optimize-autoloader
+   php spark optimize
+   ```
